@@ -1,9 +1,17 @@
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
+
 export default function Home() {
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-bold text-green-700">
-        Home Page
-      </h1>
-    </div>
+    <>
+      <Navbar />
+
+      <main>
+        <Hero />
+      </main>
+
+      <Footer />
+    </>
   );
 }
