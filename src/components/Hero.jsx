@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="min-h-[85vh] flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
