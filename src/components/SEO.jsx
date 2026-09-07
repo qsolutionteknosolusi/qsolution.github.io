@@ -3,7 +3,8 @@ import { Helmet } from "react-helmet-async";
 const siteUrl =
   import.meta.env.VITE_SITE_URL ||
   "https://www.qsolution.id";
-const ogImage = `${siteUrl}/og-image.png`;
+const normalizedSiteUrl = siteUrl.replace(/\/+$/, "");
+const ogImage = `${normalizedSiteUrl}/og-image.png`;
 const defaultDescription =
   "QSolution membantu sekolah dan UMKM mengukur kesiapan digital dan menentukan roadmap transformasi sebelum berinvestasi pada teknologi.";
 
@@ -18,13 +19,14 @@ export default function SEO({
   const pageTitle = title
     ? `${title} | QSolution Indonesia`
     : "QSOLUTION | Mitra Transformasi Digital untuk Sekolah dan UMKM";
-  const canonical = `${siteUrl}${path || "/"}`;
+  const normalizedPath = path ? `/${path.replace(/^\/+/, "")}` : "/";
+  const canonical = `${normalizedSiteUrl}${normalizedPath}`;
   const organization = {
     "@type": "Organization",
-    "@id": `${siteUrl}/#organization`,
+    "@id": `${normalizedSiteUrl}/#organization`,
     name: "QSolution Indonesia",
-    url: siteUrl,
-    logo: `${siteUrl}/favicon.svg`,
+    url: normalizedSiteUrl,
+    logo: `${normalizedSiteUrl}/favicon.svg`,
     description: defaultDescription,
     areaServed: "ID",
     knowsAbout: ["Transformasi Digital", "Pendidikan", "UMKM", "Green Technology"],
@@ -36,8 +38,8 @@ export default function SEO({
         headline: title,
         description,
         mainEntityOfPage: canonical,
-        author: { "@id": `${siteUrl}/#organization` },
-        publisher: { "@id": `${siteUrl}/#organization` },
+        author: { "@id": `${normalizedSiteUrl}/#organization` },
+        publisher: { "@id": `${normalizedSiteUrl}/#organization` },
         datePublished: publishedTime,
         articleSection: category,
       }
@@ -45,12 +47,12 @@ export default function SEO({
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "QSolution Indonesia",
-        url: siteUrl,
+        url: normalizedSiteUrl,
         description: defaultDescription,
-        publisher: { "@id": `${siteUrl}/#organization` },
+        publisher: { "@id": `${normalizedSiteUrl}/#organization` },
         potentialAction: {
           "@type": "SearchAction",
-          target: `${siteUrl}/insight?q={search_term_string}`,
+          target: `${normalizedSiteUrl}/insight?q={search_term_string}`,
           "query-input": "required name=search_term_string",
         },
         about: organization,

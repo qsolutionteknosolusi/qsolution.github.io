@@ -18,7 +18,7 @@ export default function Home() {
         description="QSolution membantu sekolah dan UMKM mengukur kesiapan digital dan menentukan roadmap transformasi sebelum berinvestasi pada teknologi."
         path="/"
       />
-      <main>
+      <main id="main-content" tabIndex="-1">
         <Hero />
         <QScoreDashboardPreview />
         <PrivacyTrustCard />

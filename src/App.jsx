@@ -11,14 +11,14 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Assessment = lazy(() => import("./pages/Assessment"));
 const QSchool = lazy(() => import("./pages/QSchool"));
 const QUMKM = lazy(() => import("./pages/QUMKM"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (
     <div className="app-shell">
       <a className="skip-link" href="#main-content">Lewati ke Konten Utama</a>
       <Navbar />
-      <div id="main-content">
-        <Suspense fallback={<div className="route-loading" role="status"><Spinner label="Memuat halaman" /></div>}>
+      <Suspense fallback={<main id="main-content" className="route-loading" tabIndex="-1" role="status"><Spinner label="Memuat halaman" /></main>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/insight" element={<Insight />} />
@@ -28,9 +28,9 @@ function App() {
             <Route path="/assessment" element={<Assessment />} />
             <Route path="/qschool" element={<QSchool />} />
             <Route path="/qumkm" element={<QUMKM />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </Suspense>
-      </div>
+      </Suspense>
       <Footer />
     </div>
   );

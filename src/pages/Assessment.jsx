@@ -84,7 +84,7 @@ export default function Assessment() {
   return (
     <>
       <SEO title="Cek Skor Kesiapan Digital" description="Ukur kesiapan digital organisasi Anda dalam 5 menit bersama QScore." path="/assessment" />
-      <main className="assessment-page">
+      <main id="main-content" className="assessment-page" tabIndex="-1">
         <section className="page-hero section">
           <div className="container narrow">
             <p className="eyebrow">QScore™ Assessment</p>

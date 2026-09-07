@@ -17,7 +17,7 @@ export default function Insight() {
   return (
     <>
       <SEO title="Insight" description="Perspektif QSolution tentang transformasi digital untuk sekolah, UMKM, dan teknologi hijau." path="/insight" />
-      <main>
+      <main id="main-content" tabIndex="-1">
         <section className="page-hero section"><div className="container narrow"><p className="eyebrow">Insight QSolution</p><h1>Jual kejelasan arah,<br /><em>bukan sekadar teknologi.</em></h1><p>Catatan praktis untuk membantu sekolah dan UMKM mengambil keputusan digital yang lebih terarah.</p></div></section>
         <section className="section insight-list" aria-labelledby="insight-heading">
           <div className="container">
