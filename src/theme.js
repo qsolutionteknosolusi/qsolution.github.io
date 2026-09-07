@@ -1,3 +1,9 @@
+/**
+ * theme.js
+ *
+ * Purpose:
+ * Defines the shared Fluent UI color and typography tokens.
+ */
 import { createLightTheme } from "@fluentui/react-components";
 
 /**

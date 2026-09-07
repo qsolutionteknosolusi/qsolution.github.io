@@ -1,7 +1,17 @@
+/**
+ * App.jsx
+ *
+ * Purpose:
+ * Defines the shared application shell and lazy-loaded route table.
+ *
+ * Used By:
+ * src/main.jsx
+ */
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import { Spinner } from "@fluentui/react-components";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -16,6 +26,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <div className="app-shell">
+      <ScrollToTop />
       <a className="skip-link" href="#main-content">Lewati ke Konten Utama</a>
       <Navbar />
       <Suspense fallback={<main id="main-content" className="route-loading" tabIndex="-1" role="status"><Spinner label="Memuat halaman" /></main>}>

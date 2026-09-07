@@ -1,3 +1,9 @@
+/**
+ * AssessmentService.js
+ *
+ * Purpose:
+ * Stores assessment questions and builds the lead-submission payload.
+ */
 export const assessmentQuestions = [
   { id: "digital-processes", label: "Seberapa terdigitalisasi proses utama organisasi Anda?", options: ["Masih manual", "Sebagian sudah digital", "Terintegrasi"] },
   { id: "data-access", label: "Seberapa mudah tim mengakses data untuk mengambil keputusan?", options: ["Sulit ditemukan", "Tersedia tetapi terpisah", "Mudah dipantau"] },

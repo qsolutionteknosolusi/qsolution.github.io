@@ -1,3 +1,18 @@
+/**
+ * Assessment.jsx
+ *
+ * Purpose:
+ * Handles the QScore digital-readiness assessment flow.
+ *
+ * Stages:
+ * 1. Organization selection
+ * 2. Assessment questions
+ * 3. Lead capture
+ * 4. Personalized results
+ *
+ * Used By:
+ * The /assessment route.
+ */
 import { useMemo, useState } from "react";
 import { Badge, Button, Card, Field, Input, ProgressBar, Radio, RadioGroup } from "@fluentui/react-components";
 import { ArrowLeft24Regular, ArrowRight24Regular, CheckmarkCircle24Filled } from "@fluentui/react-icons";

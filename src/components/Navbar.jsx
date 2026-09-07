@@ -1,4 +1,10 @@
-import { useState } from "react";
+/**
+ * Navbar.jsx
+ *
+ * Purpose:
+ * Provides primary navigation, assessment CTA, and accessible mobile-menu behavior.
+ */
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@fluentui/react-components";
 import { Dismiss24Regular, Navigation24Regular } from "@fluentui/react-icons";
@@ -13,9 +19,33 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const menuButtonRef = useRef(null);
+  const navigationRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const firstMenuItem = navigationRef.current?.querySelector("a, button");
+    firstMenuItem?.focus();
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
+
+  const closeMenu = () => {
+    setOpen(false);
+    menuButtonRef.current?.focus();
+  };
 
   const goToAssessment = () => {
-    setOpen(false);
+    closeMenu();
     navigate("/assessment");
   };
 
@@ -26,14 +56,14 @@ export default function Navbar() {
           <span className="brand-mark">Q</span>
           <span>Solution</span>
         </Link>
-        <div id="primary-navigation" className={`nav-links ${open ? "is-open" : ""}`}>
+        <div id="primary-navigation" ref={navigationRef} className={`nav-links ${open ? "is-open" : ""}`}>
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === "/"}
               className={({ isActive }) => (isActive ? "active" : "")}
-              onClick={() => setOpen(false)}
+              onClick={closeMenu}
             >
               {link.label}
             </NavLink>
@@ -47,6 +77,7 @@ export default function Navbar() {
           <Button
             appearance="subtle"
             className="mobile-menu"
+            ref={menuButtonRef}
             icon={open ? <Dismiss24Regular /> : <Navigation24Regular />}
             aria-controls="primary-navigation"
             aria-label={open ? "Tutup menu" : "Buka menu"}

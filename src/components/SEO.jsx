@@ -1,3 +1,9 @@
+/**
+ * SEO.jsx
+ *
+ * Purpose:
+ * Generates page metadata, canonical URLs, social tags, and structured data.
+ */
 import { Helmet } from "react-helmet-async";
 
 const siteUrl =

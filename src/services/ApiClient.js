@@ -1,3 +1,9 @@
+/**
+ * ApiClient.js
+ *
+ * Purpose:
+ * Provides the optional Google Apps Script transport boundary.
+ */
 const apiUrl = import.meta.env.VITE_APPS_SCRIPT_URL || "";
 
 export async function postToAppsScript(payload) {

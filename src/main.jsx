@@ -1,3 +1,9 @@
+/**
+ * main.jsx
+ *
+ * Purpose:
+ * Bootstraps React providers, routing, Fluent UI theming, and global styles.
+ */
 import "./index.css";
 
 import React from "react";

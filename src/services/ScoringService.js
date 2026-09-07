@@ -1,3 +1,9 @@
+/**
+ * ScoringService.js
+ *
+ * Purpose:
+ * Converts assessment answers into scores, categories, and ranked insights.
+ */
 export function getScoreCategory(score) {
   if (score <= 40) return "Awal";
   if (score <= 70) return "Berkembang";

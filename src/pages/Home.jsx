@@ -1,3 +1,12 @@
+/**
+ * Home.jsx
+ *
+ * Purpose:
+ * Composes the homepage conversion funnel and its supporting proof sections.
+ *
+ * Used By:
+ * The root route (/).
+ */
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import ProblemSection from "../components/ProblemSection";
