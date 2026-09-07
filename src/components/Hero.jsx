@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button, Card } from "@fluentui/react-components";
-import { ArrowRight24Regular, PlayCircle24Regular } from "@fluentui/react-icons";
+import {
+  ArrowRight24Regular,
+  CheckmarkCircle24Filled,
+  PlayCircle24Regular,
+  Warning24Filled,
+} from "@fluentui/react-icons";
 
 export default function Hero() {
   return (
@@ -36,23 +41,34 @@ export default function Hero() {
               <span>Jadwalkan Konsultasi Awal</span>
             </Button>
           </div>
-          <div className="hero-proof">
-            <span className="proof-dot" aria-hidden="true" />
-            <span>Dipercaya untuk membantu organisasi mengambil keputusan digital yang lebih terarah, efisien, dan berkelanjutan.</span>
+          <div className="hero-trust" aria-label="Fokus QSolution">
+            <span><CheckmarkCircle24Filled aria-hidden="true" /> Fokus Sekolah</span>
+            <span><CheckmarkCircle24Filled aria-hidden="true" /> Fokus UMKM</span>
+            <span><CheckmarkCircle24Filled aria-hidden="true" /> Transformasi Digital</span>
+            <span><CheckmarkCircle24Filled aria-hidden="true" /> Teknologi Berkelanjutan</span>
           </div>
         </div>
-        <Card className="hero-visual" aria-label="Ilustrasi skor kesiapan digital QSolution">
+        <Card className="hero-visual" aria-label="Contoh hasil assessment QScore">
           <div className="visual-glow" />
           <div className="visual-card visual-card-main">
-            <div className="mini-label">QScore insight</div>
-            <strong>+42%</strong>
-            <span>student engagement</span>
-            <div className="chart" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+            <div className="assessment-heading">
+              <div>
+                <div className="mini-label">QScore™</div>
+                <strong>72<span>/100</span></strong>
+              </div>
+              <span className="assessment-label">Digital Readiness Score</span>
+            </div>
+            <div className="assessment-status">
+              <span><CheckmarkCircle24Filled aria-hidden="true" /> Website Aktif</span>
+              <span><CheckmarkCircle24Filled aria-hidden="true" /> Administrasi Digital</span>
+              <span><Warning24Filled aria-hidden="true" /> Branding Digital</span>
+              <span><Warning24Filled aria-hidden="true" /> Otomasi Proses</span>
+            </div>
           </div>
-          <div className="visual-card visual-card-float one"><b>01</b><span>Understand</span></div>
-          <div className="visual-card visual-card-float two"><b>02</b><span>Build</span></div>
+          <div className="visual-card visual-card-float one">Contoh hasil assessment</div>
+          <div className="visual-card visual-card-float two">Roadmap awal</div>
           <div className="visual-orbit" />
-          <div className="visual-caption">Human-centered<br /><b>technology</b></div>
+          <div className="visual-caption">Measure first<br /><b>transform with clarity</b></div>
         </Card>
       </div>
     </section>
