@@ -5,6 +5,8 @@ import SolutionSection from "../components/SolutionSection";
 import QScoreSection from "../components/QScoreSection";
 import WhyQSolution from "../components/WhyQSolution";
 import ProcessSection from "../components/ProcessSection";
+import ShowcaseSection from "../components/ShowcaseSection";
+import ImpactSection from "../components/ImpactSection";
 import BlogPreview from "../components/BlogPreview";
 import CTASection from "../components/CTASection";
 
@@ -23,6 +25,8 @@ export default function Home() {
         <QScoreSection />
         <WhyQSolution />
         <ProcessSection />
+        <ShowcaseSection />
+        <ImpactSection />
         <BlogPreview />
         <CTASection />
       </main>
