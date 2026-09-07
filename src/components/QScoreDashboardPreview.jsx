@@ -1,5 +1,6 @@
-import { Badge, Card, Divider, ProgressBar } from "@fluentui/react-components";
+import { Badge, Button, Card, Divider, ProgressBar } from "@fluentui/react-components";
 import { CheckmarkCircle24Filled, DataBarVertical24Regular } from "@fluentui/react-icons";
+import { Link } from "react-router-dom";
 
 const breakdown = [
   ["Website & Presence", 88],
@@ -28,6 +29,7 @@ export default function QScoreDashboardPreview() {
           <div className="qscore-dashboard-top">
             <div>
               <div className="qscore-dashboard-kicker"><DataBarVertical24Regular aria-hidden="true" /> Digital Readiness Assessment</div>
+              <p className="qscore-dashboard-disclaimer">🔒 Contoh Hasil Assessment<br /><span>Data yang ditampilkan merupakan simulasi yang dirancang untuk merepresentasikan kondisi organisasi secara umum.</span><span>Assessment dan rekomendasi yang lebih spesifik hanya diberikan melalui proses konsultasi dengan menjaga kerahasiaan data organisasi.</span></p>
               <div className="qscore-dashboard-score">72<span>/100</span></div>
               <Badge appearance="filled" color="informative">Berkembang</Badge>
             </div>
@@ -63,6 +65,15 @@ export default function QScoreDashboardPreview() {
               <span><b>Q1 2027</b>Automation</span>
               <span><b>Q2 2027</b>AI Adoption</span>
             </div>
+          </div>
+          <div className="qscore-preview-cta">
+            <div className="qscore-preview-expectations" aria-label="Detail assessment">
+              <span>✓ 15 Pertanyaan</span>
+              <span>✓ ± 5 Menit</span>
+              <span>✓ Hasil Langsung</span>
+              <span>✓ Roadmap Awal Gratis</span>
+            </div>
+            <Button appearance="primary" as={Link} to="/assessment">Dapatkan Skor Organisasi Anda</Button>
           </div>
         </Card>
       </div>

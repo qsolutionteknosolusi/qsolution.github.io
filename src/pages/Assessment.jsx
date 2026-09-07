@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Badge, Button, Card, Field, Input, ProgressBar, Radio, RadioGroup } from "@fluentui/react-components";
 import { ArrowLeft24Regular, ArrowRight24Regular, CheckmarkCircle24Filled } from "@fluentui/react-icons";
+import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { assessmentQuestions, createAssessmentPayload } from "../services/AssessmentService";
 import { calculateScore, getAssessmentInsights, getScoreCategory } from "../services/ScoringService";
@@ -8,11 +9,30 @@ import { submitAssessmentLead } from "../services/LeadService";
 
 const initialLead = { name: "", organization: "", email: "", whatsapp: "" };
 
-function roadmapFor(category) {
-  const firstStep = category === "Awal" ? "Digital foundation dan prioritas dasar" : "Quick wins dan standardisasi proses";
+function getPersonalizedInsights(organizationType, insights) {
+  const context = organizationType === "Sekolah"
+    ? {
+        strengths: ["Kesiapan pengalaman digital sekolah", ...insights.strengths],
+        improvements: ["Integrasi PPDB dan administrasi sekolah", ...insights.improvements],
+      }
+    : {
+        strengths: ["Kesiapan digital presence bisnis", ...insights.strengths],
+        improvements: ["Efisiensi operasional dan akuisisi pelanggan", ...insights.improvements],
+      };
   return {
-    ninetyDays: [firstStep, "Modernisasi kehadiran digital", "Tetapkan indikator keberhasilan"],
-    oneYear: ["Integrasikan data dan kolaborasi tim", "Otomasi proses berulang", "Siapkan use case AI yang relevan"],
+    strengths: [...new Set(context.strengths)].slice(0, 3),
+    improvements: [...new Set(context.improvements)].slice(0, 3),
+  };
+}
+
+function roadmapFor(category, organizationType) {
+  const firstStep = category === "Awal" ? "Digital foundation dan prioritas dasar" : "Quick wins dan standardisasi proses";
+  const focus = organizationType === "Sekolah" ? "Modernisasi website dan PPDB sekolah" : "Modernisasi website dan digital presence bisnis";
+  return {
+    ninetyDays: [firstStep, focus, "Tetapkan indikator keberhasilan"],
+    oneYear: organizationType === "Sekolah"
+      ? ["Integrasikan data siswa dan administrasi", "Otomasi komunikasi sekolah", "Siapkan AI Assistant pendidikan"]
+      : ["Integrasikan data pelanggan dan operasional", "Otomasi proses penjualan", "Siapkan AI Assistant bisnis"],
   };
 }
 
@@ -28,7 +48,8 @@ export default function Assessment() {
   const score = useMemo(() => calculateScore(answers, assessmentQuestions.length), [answers]);
   const category = getScoreCategory(score);
   const insights = useMemo(() => getAssessmentInsights(answers, assessmentQuestions), [answers]);
-  const roadmap = roadmapFor(category);
+  const personalizedInsights = getPersonalizedInsights(organizationType, insights);
+  const roadmap = roadmapFor(category, organizationType);
   const currentQuestion = assessmentQuestions[questionIndex];
 
   const updateLead = (field, value) => setLead((current) => ({ ...current, [field]: value }));
@@ -103,6 +124,17 @@ export default function Assessment() {
               <Card className="assessment-card">
                 <p className="eyebrow">Langkah 3 dari 3</p>
                 <h2>Ke mana kami kirim hasil assessment Anda?</h2>
+                <p className="assessment-value-exchange">Masukkan data organisasi untuk menerima hasil assessment dan roadmap awal.</p>
+                <div className="assessment-privacy-explanation">
+                  <h3>Mengapa kami meminta data ini?</h3>
+                  <p>Data yang Anda berikan digunakan untuk:</p>
+                  <ul>
+                    <li>mengirimkan hasil assessment</li>
+                    <li>menyusun rekomendasi awal</li>
+                    <li>menghubungi Anda jika diperlukan</li>
+                  </ul>
+                  <p>Data tidak akan dipublikasikan atau dibagikan kepada pihak lain.</p>
+                </div>
                 <form className="assessment-lead-form" onSubmit={finishAssessment}>
                   <Field label="Nama" required><Input value={lead.name} onChange={(_, data) => updateLead("name", data.value)} /></Field>
                   <Field label="Organisasi" required><Input value={lead.organization} onChange={(_, data) => updateLead("organization", data.value)} /></Field>
@@ -122,10 +154,14 @@ export default function Assessment() {
                 {submissionState === "preview" && <p className="assessment-notice">Hasil siap ditinjau. Integrasi Google Sheets dapat diaktifkan melalui VITE_APPS_SCRIPT_URL.</p>}
                 {submissionState === "submitted" && <p className="assessment-notice success"><CheckmarkCircle24Filled aria-hidden="true" /> Data assessment berhasil dikirim.</p>}
                 <div className="result-columns">
-                  <div><h3>Strengths</h3><ul>{insights.strengths.map((item) => <li key={item}>{item}</li>)}</ul></div>
-                  <div><h3>Improvement Areas</h3><ul>{insights.improvements.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                  <div><h3>Strengths</h3><ul>{personalizedInsights.strengths.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                  <div><h3>Improvement Areas</h3><ul>{personalizedInsights.improvements.map((item) => <li key={item}>{item}</li>)}</ul></div>
                 </div>
                 <div className="result-roadmaps"><div><h3>90-Day Roadmap</h3><ul>{roadmap.ninetyDays.map((item) => <li key={item}>{item}</li>)}</ul></div><div><h3>1-Year Roadmap</h3><ul>{roadmap.oneYear.map((item) => <li key={item}>{item}</li>)}</ul></div></div>
+                <div className="assessment-result-actions">
+                  <Button appearance="primary" as={Link} to="/contact">Review Roadmap Bersama QSolution</Button>
+                  <Button appearance="secondary" as={Link} to="/contact">Jadwalkan Konsultasi Awal</Button>
+                </div>
               </Card>
             )}
           </div>

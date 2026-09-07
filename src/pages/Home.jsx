@@ -2,6 +2,7 @@ import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import ProblemSection from "../components/ProblemSection";
 import QScoreDashboardPreview from "../components/QScoreDashboardPreview";
+import PrivacyTrustCard from "../components/PrivacyTrustCard";
 import TransformationRoadmap from "../components/TransformationRoadmap";
 import ShowcaseSection from "../components/ShowcaseSection";
 import BeforeAfterSection from "../components/BeforeAfterSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <main>
         <Hero />
         <QScoreDashboardPreview />
+        <PrivacyTrustCard />
         <ProblemSection />
         <TransformationRoadmap />
         <ShowcaseSection />

@@ -81,9 +81,10 @@ export default function ShowcaseSection() {
                 <BrowserMockup type={showcase.visual} title={showcase.title} />
               </div>
               <div className="showcase-content">
-                <p className="card-kicker">Inisiatif {String(index + 1).padStart(2, "0")}</p>
+                <p className="card-kicker">Inisiatif {String(index + 1).padStart(2, "0")} <Badge appearance="tint">Preview</Badge></p>
                 <h3>{showcase.title}</h3>
                 <p>{showcase.description}</p>
+                <p className="showcase-disclaimer">Visual yang ditampilkan merupakan ilustrasi dan contoh hasil yang merepresentasikan pendekatan QSolution.</p>
                 <Button appearance="secondary" as={Link} to={showcase.to} icon={<ArrowRight24Regular />}>
                   {showcase.cta}
                 </Button>

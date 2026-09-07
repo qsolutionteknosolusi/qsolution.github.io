@@ -18,6 +18,11 @@ export default function TransformationRoadmap() {
           <h2 id="roadmap-heading">Contoh Roadmap Transformasi Digital</h2>
           <p>Setiap organisasi memulai dari kondisi yang berbeda.<br />Berikut contoh roadmap yang dihasilkan setelah assessment QScore.</p>
         </div>
+        <div className="roadmap-disclaimer">
+          <strong>Contoh Roadmap Transformasi</strong>
+          <p>Roadmap ini merupakan simulasi yang menunjukkan bagaimana hasil assessment dapat diterjemahkan menjadi langkah implementasi yang terstruktur.</p>
+          <p>Setiap roadmap aktual disesuaikan dengan kebutuhan dan kondisi masing-masing organisasi.</p>
+        </div>
         <div className="roadmap-track">
           {stages.map(([number, title, items, Icon], index) => (
             <div className="roadmap-stage" key={title}>

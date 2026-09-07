@@ -34,7 +34,7 @@ export default function Hero() {
               appearance="subtle"
               as="a"
               className="button button-quiet"
-              href="#solution"
+              href="/contact"
               icon={<PlayCircle24Regular />}
             >
               <span aria-hidden="true">📅</span>

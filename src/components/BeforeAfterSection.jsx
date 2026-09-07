@@ -15,6 +15,7 @@ export default function BeforeAfterSection() {
           <p className="eyebrow">Perubahan yang terlihat</p>
           <h2 id="before-after-heading">Sebelum dan Sesudah Transformasi</h2>
         </div>
+        <p className="before-after-disclaimer">Seluruh ilustrasi sebelum dan sesudah merupakan contoh simulasi yang dirancang untuk menggambarkan perubahan yang umum terjadi dalam proses transformasi digital.</p>
         <div className="before-after-grid">
           {comparisons.map(([before, after]) => (
             <Card className="before-after-card" key={before}>
