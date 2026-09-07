@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const goToAssessment = () => {
     setOpen(false);
-    navigate("/contact");
+    navigate("/assessment");
   };
 
   return (

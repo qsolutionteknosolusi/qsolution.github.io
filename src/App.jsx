@@ -8,6 +8,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Insight = lazy(() => import("./pages/Insight"));
 const Article = lazy(() => import("./pages/Article"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Assessment = lazy(() => import("./pages/Assessment"));
 const QSchool = lazy(() => import("./pages/QSchool"));
 const QUMKM = lazy(() => import("./pages/QUMKM"));
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/insight/:slug" element={<Article />} />
             <Route path="/article/:slug" element={<Article />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/assessment" element={<Assessment />} />
             <Route path="/qschool" element={<QSchool />} />
             <Route path="/qumkm" element={<QUMKM />} />
           </Routes>

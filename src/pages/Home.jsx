@@ -1,11 +1,10 @@
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import ProblemSection from "../components/ProblemSection";
-import SolutionSection from "../components/SolutionSection";
-import QScoreSection from "../components/QScoreSection";
-import WhyQSolution from "../components/WhyQSolution";
-import ProcessSection from "../components/ProcessSection";
+import QScoreDashboardPreview from "../components/QScoreDashboardPreview";
+import TransformationRoadmap from "../components/TransformationRoadmap";
 import ShowcaseSection from "../components/ShowcaseSection";
+import BeforeAfterSection from "../components/BeforeAfterSection";
 import ImpactSection from "../components/ImpactSection";
 import BlogPreview from "../components/BlogPreview";
 import CTASection from "../components/CTASection";
@@ -20,12 +19,11 @@ export default function Home() {
       />
       <main>
         <Hero />
+        <QScoreDashboardPreview />
         <ProblemSection />
-        <SolutionSection />
-        <QScoreSection />
-        <WhyQSolution />
-        <ProcessSection />
+        <TransformationRoadmap />
         <ShowcaseSection />
+        <BeforeAfterSection />
         <ImpactSection />
         <BlogPreview />
         <CTASection />

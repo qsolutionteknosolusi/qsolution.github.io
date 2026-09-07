@@ -9,7 +9,7 @@ export default function CTASection() {
         <p className="eyebrow">Mulai dengan kejelasan arah</p>
         <h2 id="cta-heading">Siap Menentukan Langkah Transformasi Digital Anda?</h2>
         <p>Mari mulai dengan assessment gratis atau konsultasi awal bersama tim QSolution.</p>
-        <Button appearance="secondary" as={Link} className="button button-white" to="/contact" icon={<ArrowRight24Regular />}>
+        <Button appearance="secondary" as={Link} className="button button-white" to="/assessment" icon={<ArrowRight24Regular />}>
           <span aria-hidden="true">🚀</span>
           <span>Cek Skor Kesiapan Digital Gratis</span>
         </Button>

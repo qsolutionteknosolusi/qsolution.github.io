@@ -25,7 +25,7 @@ export default function Hero() {
               as={Link}
               className="button button-primary"
               icon={<ArrowRight24Regular />}
-              to="/contact"
+              to="/assessment"
             >
               <span aria-hidden="true">🚀</span>
               <span>Cek Skor Kesiapan Digital Gratis</span>

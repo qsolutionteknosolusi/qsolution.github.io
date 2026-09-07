@@ -1,4 +1,4 @@
-import { Card, Button } from "@fluentui/react-components";
+import { Badge, Card, Button } from "@fluentui/react-components";
 import {
   ArrowRight24Regular,
   ClipboardTask24Regular,
@@ -34,7 +34,7 @@ const showcases = [
     title: "QScore™",
     description: "Digital Readiness Assessment untuk mengukur kesiapan digital organisasi.",
     visual: "qscore",
-    to: "/contact",
+    to: "/assessment",
     cta: "Cek Kesiapan Digital",
   },
   {
@@ -45,6 +45,20 @@ const showcases = [
     cta: "Lihat Solusi UMKM",
   },
 ];
+
+function BrowserMockup({ type, title }) {
+  return (
+    <div className={`browser-mockup browser-mockup-${type}`} aria-label={`${title} product preview`}>
+      <div className="browser-bar"><i /><i /><i /><span>qsolution.id / preview</span></div>
+      <div className="browser-content">
+        {type === "school" && <><div className="mock-nav">QSchool <span>Program | Tentang | Kontak</span></div><div className="mock-school-hero"><b>Belajar untuk masa depan.</b><span>Future skills untuk generasi siap berubah.</span><em>Jelajahi program →</em></div></>}
+        {type === "pathfinder" && <><div className="mock-dashboard-title">Pathfinder School™ <Badge appearance="tint" color="success">On track</Badge></div><div className="mock-progress"><span /><span /><span /><span /></div><div className="mock-table"><b>Digital Foundation</b><b>Automation</b><b>AI Enablement</b></div></>}
+        {type === "qscore" && <><div className="mock-dashboard-title">QScore™ <strong>72/100</strong></div><div className="mock-bars"><span /><span /><span /><span /><span /></div><div className="mock-metrics"><b>Website 88</b><b>Ops 74</b><b>AI 42</b></div></>}
+        {type === "umkm" && <><div className="mock-nav">Kopi Nusantara <span>Menu | Cerita | Pesan</span></div><div className="mock-shop-hero"><b>Rasa yang tumbuh bersama.</b><span>Pesan kopi terbaik dari bisnis lokal.</span><em>Lihat produk →</em></div></>}
+      </div>
+    </div>
+  );
+}
 
 export default function ShowcaseSection() {
   return (
@@ -63,10 +77,8 @@ export default function ShowcaseSection() {
         <div className="showcase-list">
           {showcases.map((showcase, index) => (
             <Card className={`showcase-card ${index % 2 ? "showcase-card-reverse" : ""}`} key={showcase.title}>
-              <div className={`showcase-visual showcase-visual-${showcase.visual}`} aria-label={`Contoh visual ${showcase.title}`}>
-                <span>QSolution</span>
-                <strong>{showcase.title}</strong>
-                <div className="showcase-visual-lines" aria-hidden="true" />
+              <div className={`showcase-visual showcase-visual-${showcase.visual}`}>
+                <BrowserMockup type={showcase.visual} title={showcase.title} />
               </div>
               <div className="showcase-content">
                 <p className="card-kicker">Inisiatif {String(index + 1).padStart(2, "0")}</p>
