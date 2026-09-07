@@ -1,6 +1,7 @@
 import { Badge, Button, Card, Divider, ProgressBar } from "@fluentui/react-components";
 import { CheckmarkCircle24Filled, DataBarVertical24Regular } from "@fluentui/react-icons";
 import { Link } from "react-router-dom";
+import { assessmentQuestionCount } from "../services/AssessmentConfig";
 
 const breakdown = [
   ["Website & Presence", 88],
@@ -68,7 +69,7 @@ export default function QScoreDashboardPreview() {
           </div>
           <div className="qscore-preview-cta">
             <div className="qscore-preview-expectations" aria-label="Detail assessment">
-              <span>✓ 15 Pertanyaan</span>
+              <span>✓ {assessmentQuestionCount} Pertanyaan</span>
               <span>✓ ± 5 Menit</span>
               <span>✓ Hasil Langsung</span>
               <span>✓ Roadmap Awal Gratis</span>

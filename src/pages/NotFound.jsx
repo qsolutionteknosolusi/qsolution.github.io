@@ -6,7 +6,12 @@ import SEO from "../components/SEO";
 export default function NotFound() {
   return (
     <>
-      <SEO title="Halaman Tidak Ditemukan" description="Halaman yang Anda cari tidak ditemukan." path="/404" />
+      <SEO
+        title="Halaman Tidak Ditemukan"
+        description="Halaman yang Anda cari tidak ditemukan."
+        path="/404"
+        robots="noindex, nofollow"
+      />
       <main id="main-content" tabIndex="-1">
         <section className="page-hero section not-found-page" aria-labelledby="not-found-heading">
           <div className="container narrow">

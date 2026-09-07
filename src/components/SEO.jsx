@@ -15,6 +15,7 @@ export default function SEO({
   type = "website",
   publishedTime,
   category,
+  robots = "index, follow, max-image-preview:large",
 }) {
   const pageTitle = title
     ? `${title} | QSolution Indonesia`
@@ -63,7 +64,7 @@ export default function SEO({
       <html lang="id" />
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta name="robots" content={robots} />
       <meta name="theme-color" content="#0F766E" />
       <meta property="og:locale" content="id_ID" />
       <meta property="og:site_name" content="QSolution Indonesia" />

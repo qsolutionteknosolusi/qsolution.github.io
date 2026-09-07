@@ -6,6 +6,7 @@ import {
   PlayCircle24Regular,
   Warning24Filled,
 } from "@fluentui/react-icons";
+import { assessmentQuestionCount } from "../services/AssessmentConfig";
 
 export default function Hero() {
   return (
@@ -46,6 +47,7 @@ export default function Hero() {
             <span><CheckmarkCircle24Filled aria-hidden="true" /> Fokus UMKM</span>
             <span><CheckmarkCircle24Filled aria-hidden="true" /> Transformasi Digital</span>
             <span><CheckmarkCircle24Filled aria-hidden="true" /> Teknologi Berkelanjutan</span>
+            <span><CheckmarkCircle24Filled aria-hidden="true" /> {assessmentQuestionCount} Pertanyaan</span>
           </div>
         </div>
         <Card className="hero-visual" aria-label="Contoh hasil assessment QScore">

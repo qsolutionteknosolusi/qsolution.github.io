@@ -4,6 +4,7 @@ import { ArrowLeft24Regular, ArrowRight24Regular, CheckmarkCircle24Filled } from
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { assessmentQuestions, createAssessmentPayload } from "../services/AssessmentService";
+import { assessmentQuestionCount } from "../services/AssessmentConfig";
 import { calculateScore, getAssessmentInsights, getScoreCategory } from "../services/ScoringService";
 import { submitAssessmentLead } from "../services/LeadService";
 
@@ -89,7 +90,7 @@ export default function Assessment() {
           <div className="container narrow">
             <p className="eyebrow">QScore™ Assessment</p>
             <h1>Ketahui arah transformasi digital Anda.</h1>
-            <p>Jawab pertanyaan singkat untuk mendapatkan skor, prioritas, dan roadmap awal yang lebih terarah.</p>
+            <p>Jawab {assessmentQuestionCount} pertanyaan singkat untuk mendapatkan skor, prioritas, dan roadmap awal yang lebih terarah.</p>
           </div>
         </section>
         <section className="section assessment-flow-section">
