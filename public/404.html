@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Memuat QSolution</title>
+  </head>
+  <body>
+    <p>Memuat halaman QSolution…</p>
+    <script>
+      (() => {
+        const path = window.location.pathname;
+        const query = window.location.search;
+        const hash = window.location.hash;
+        const requestedUrl = `${path}${query}${hash}`;
+
+        fetch("/index.html")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Unable to load the application shell.");
+            }
+            return response.text();
+          })
+          .then((html) => {
+            window.history.replaceState(null, "", requestedUrl);
+            document.open();
+            document.write(html);
+            document.close();
+          })
+          .catch(() => {
+            window.location.replace("/index.html");
+          });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,19 +1,31 @@
-import Navbar from "../components/Navbar";
+import SEO from "../components/SEO";
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Footer from "../components/Footer";
+import ProblemSection from "../components/ProblemSection";
+import SolutionSection from "../components/SolutionSection";
+import QScoreSection from "../components/QScoreSection";
+import WhyQSolution from "../components/WhyQSolution";
+import ProcessSection from "../components/ProcessSection";
+import BlogPreview from "../components/BlogPreview";
+import CTASection from "../components/CTASection";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-
+      <SEO
+        title="Mitra Transformasi Digital untuk Sekolah dan UMKM"
+        description="QSolution membantu sekolah dan UMKM mengukur kesiapan digital dan menentukan roadmap transformasi sebelum berinvestasi pada teknologi."
+        path="/"
+      />
       <main>
         <Hero />
-        <About />
+        <ProblemSection />
+        <SolutionSection />
+        <QScoreSection />
+        <WhyQSolution />
+        <ProcessSection />
+        <BlogPreview />
+        <CTASection />
       </main>
-
-      <Footer />
     </>
   );
 }

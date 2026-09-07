@@ -1,15 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="font-semibold">
-          QSolution
-        </p>
-
-        <p className="text-sm text-gray-500 mt-2">
-          Membangun Solusi Digital yang Berdampak.
-        </p>
+    <footer className="site-footer">
+      <div className="container footer-main">
+        <div><Link className="brand footer-brand" to="/"><span className="brand-mark">Q</span><span>Solution</span></Link><p>Mitra Transformasi Digital untuk Sekolah dan UMKM Indonesia.</p></div>
+        <div className="footer-links"><div><strong>Jelajahi</strong><Link to="/qschool">Untuk Sekolah</Link><Link to="/qumkm">Untuk UMKM</Link><Link to="/insight">Insight</Link></div><div><strong>Hubungi</strong><Link to="/contact">Konsultasi</Link><a href="mailto:hello@qsolution.id">hello@qsolution.id</a><span>Indonesia</span></div></div>
       </div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} QSolution. All rights reserved.</span><span>Made with purpose.</span></div>
     </footer>
   );
 }

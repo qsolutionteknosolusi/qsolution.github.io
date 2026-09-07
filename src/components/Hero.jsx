@@ -1,65 +1,59 @@
+import { Link } from "react-router-dom";
+import { Button, Card } from "@fluentui/react-components";
+import { ArrowRight24Regular, PlayCircle24Regular } from "@fluentui/react-icons";
+
 export default function Hero() {
   return (
-    <section className="min-h-[85vh] flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-          <div>
-            <p className="text-blue-600 font-medium mb-4">
-              Technology for Education & Digital Transformation
-            </p>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              Membangun Solusi Digital yang Berdampak
-            </h1>
-
-            <p className="mt-6 text-lg text-gray-600 max-w-xl">
-              QSolution membantu sekolah, organisasi,
-              dan bisnis memanfaatkan teknologi untuk
-              meningkatkan efisiensi, pembelajaran,
-              dan inovasi digital.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mt-8">
-
-              <a
-                href="#products"
-                className="inline-flex items-center rounded-md bg-gray-900 px-5 py-3 text-sm font-medium text-white hover:bg-black"
-              >
-                Lihat Produk
-              </a>
-
-              <a
-                href="#about"
-                className="inline-flex items-center rounded-md border border-gray-300 px-5 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-              >
-                Pelajari Lebih Lanjut
-              </a>
-
-            </div>
+    <section className="hero section" aria-labelledby="hero-heading">
+      <div className="container hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow">🌱 Mitra Transformasi Digital untuk Sekolah dan UMKM Indonesia</p>
+          <h1 id="hero-heading">Jangan Biarkan Sekolah atau Bisnis Anda Tertinggal Saat Dunia Bergerak Lebih Cepat Secara Digital</h1>
+          <p className="hero-description">
+            Setiap keputusan digital yang kurang tepat dapat menghabiskan waktu, biaya, dan peluang pertumbuhan yang berharga.
+            QSolution membantu sekolah dan UMKM memahami kondisi organisasi saat ini, mengukur tingkat kesiapan digital,
+            dan menentukan langkah transformasi yang paling tepat sebelum berinvestasi pada teknologi.
+          </p>
+          <div className="button-row">
+            <Button
+              appearance="primary"
+              as={Link}
+              className="button button-primary"
+              icon={<ArrowRight24Regular />}
+              to="/contact"
+            >
+              <span aria-hidden="true">🚀</span>
+              <span>Cek Skor Kesiapan Digital Gratis</span>
+            </Button>
+            <Button
+              appearance="subtle"
+              as="a"
+              className="button button-quiet"
+              href="#solution"
+              icon={<PlayCircle24Regular />}
+            >
+              <span aria-hidden="true">📅</span>
+              <span>Jadwalkan Konsultasi Awal</span>
+            </Button>
           </div>
-
-          <div className="hidden lg:flex justify-center">
-            <div className="w-full max-w-lg rounded-2xl border border-gray-200 bg-gray-50 p-10">
-
-              <div className="space-y-4">
-
-                <div className="h-4 bg-blue-600 rounded w-2/3"></div>
-
-                <div className="h-4 bg-gray-300 rounded w-full"></div>
-
-                <div className="h-4 bg-gray-300 rounded w-4/5"></div>
-
-                <div className="h-24 bg-white rounded border border-gray-200"></div>
-
-              </div>
-
-            </div>
+          <div className="hero-proof">
+            <span className="proof-dot" aria-hidden="true" />
+            <span>Dipercaya untuk membantu organisasi mengambil keputusan digital yang lebih terarah, efisien, dan berkelanjutan.</span>
           </div>
-
         </div>
-
+        <Card className="hero-visual" aria-label="Ilustrasi skor kesiapan digital QSolution">
+          <div className="visual-glow" />
+          <div className="visual-card visual-card-main">
+            <div className="mini-label">QScore insight</div>
+            <strong>+42%</strong>
+            <span>student engagement</span>
+            <div className="chart" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+          </div>
+          <div className="visual-card visual-card-float one"><b>01</b><span>Understand</span></div>
+          <div className="visual-card visual-card-float two"><b>02</b><span>Build</span></div>
+          <div className="visual-orbit" />
+          <div className="visual-caption">Human-centered<br /><b>technology</b></div>
+        </Card>
       </div>
     </section>
   );

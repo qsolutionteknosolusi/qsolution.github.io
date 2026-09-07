@@ -1,46 +1,59 @@
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Button, Tooltip } from "@fluentui/react-components";
+import { Dismiss24Regular, Navigation24Regular } from "@fluentui/react-icons";
+
+const links = [
+  { label: "Beranda", to: "/" },
+  { label: "Untuk Sekolah", to: "/qschool" },
+  { label: "Untuk UMKM", to: "/qumkm" },
+  { label: "Insight", to: "/insight" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const goToAssessment = () => {
+    setOpen(false);
+    navigate("/contact");
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          
-          <span className="text-2xl font-extrabold tracking-tight">
-  QSolution
-</span>
-
-          <ul className="hidden md:flex items-center gap-8 text-sm text-gray-700">
-            <li>
-              <a href="#about" className="hover:text-blue-600">
-                About
-              </a>
-            </li>
-
-            <li>
-              <a href="#services" className="hover:text-blue-600">
-                Services
-              </a>
-            </li>
-
-            <li>
-              <a href="#products" className="hover:text-blue-600">
-                Products
-              </a>
-            </li>
-
-            <li>
-              <a href="#contact" className="hover:text-blue-600">
-                Contact
-              </a>
-            </li>
-          </ul>
-
-          <a
-            href="#contact"
-            className="hidden md:inline-flex bg-gray-900 text-white px-4 py-2 rounded-md text-sm hover:bg-black"
-          >
-            Get Started
-          </a>
+    <header className="site-header">
+      <nav className="container nav-bar" aria-label="Navigasi utama">
+        <Link className="brand" to="/" onClick={() => setOpen(false)} aria-label="QSolution beranda">
+          <span className="brand-mark">Q</span>
+          <span>Solution</span>
+        </Link>
+        <div id="primary-navigation" className={`nav-links ${open ? "is-open" : ""}`}>
+          {links.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === "/"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <Button appearance="primary" className="nav-cta" onClick={goToAssessment}>
+            <span aria-hidden="true">🚀</span>
+            <span>Cek Kesiapan Digital</span>
+          </Button>
         </div>
+        <Tooltip content={open ? "Tutup menu" : "Buka menu"} relationship="label">
+          <Button
+            appearance="subtle"
+            className="mobile-menu"
+            icon={open ? <Dismiss24Regular /> : <Navigation24Regular />}
+            aria-controls="primary-navigation"
+            aria-label={open ? "Tutup menu" : "Buka menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          />
+        </Tooltip>
       </nav>
     </header>
   );
